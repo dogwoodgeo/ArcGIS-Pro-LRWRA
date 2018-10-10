@@ -1,0 +1,71 @@
+﻿<ArcGIS defaultAssembly="LRWRA.dll" 
+        defaultNamespace="LRWRA" 
+        xmlns="http://schemas.esri.com/DADF/Registry" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{fd61cce9-b66c-4f78-996e-4b45fdd51b85}" 
+             version="2.1" 
+             desktopVersion="2.1.10257">
+    <Name>LRWRA</Name>
+    <Description>The main LRWRA add-in</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>Bradley.Jones</Author>
+    <Company>Little Rock Water Reclamation Authority</Company>
+    <Date>10/5/2018 12:21:52 PM, 2018</Date>
+    <Subject>Framework</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+  <modules>
+    <insertModule id="LRWRA_Module" className="Module1" autoLoad="true" caption="Module1">
+      <!-- uncomment to have the control hosted on a separate tab-->
+      <tabs>
+        <tab id="LRWRA" caption="LRWRA">
+          <group refID="esri_mapping_navigateGroup" />
+          <group refID="LRWRA_SelectGroup" />
+          <group refID="LRWRA_ContentGroup" />
+          <group refID="LRWRA_ExamineGroup" />
+          <group refID="LRWRA_Google" />
+        </tab>
+      </tabs>
+      <groups>
+        <!-- comment this out if you have no controls on the Addin tab to avoid
+              an empty group-->
+        <group id="esri_mapping_navigateGroup" caption="Navigate"></group>
+        <group id="LRWRA_SelectGroup" caption="Selection">
+          <tool refID="esri_mapping_selectToolPalette"/>
+          <tool refID="esri_geoprocessing_selectByAttributeButton"/>
+          <tool refID="esri_geoprocessing_selectByLocationButton"/>
+          <tool refID="LRWRA_SewerSelectTool" size="large" />
+          <button refID="esri_mapping_createSelectionLayerButton" size="large"/>
+          <tool refID="esri_mapping_clearSelectionButton" size="small" /> 
+        </group>
+        <group id="LRWRA_ContentGroup" caption="Map Content" appearsOnAddInTab="false">
+          <!-- host controls within groups -->
+          <button refID="LRWRA_AddData" size="large" />
+          <button refID="esri_mapping_basemapGallery" />
+          <button refID="esri_core_showProjectDockPane" />
+        </group>
+        <group id="LRWRA_ExamineGroup" caption="Examine">
+          <button refID="esri_mapping_measureToolPalette" />
+          <button refID="esri_mapping_showLocateDockPane" />
+        </group>
+        <group id="LRWRA_Google" caption="Google">
+          <tool refID="LRWRA_StreetView" size="large" />
+        </group>
+      </groups>
+      <controls>
+        <!-- add your controls here -->
+        <button id="LRWRA_AddData" caption="Add Layers" className="AddData" loadOnClick="true" largeImage="Images\AddLayerBGJ.png">
+          <tooltip heading="Add LRWRA Data">Add LRWRA data to map. Use 'Ctrl' and 'Click' to select multiple files to add. NOTE: Some file types cannot be added to a map.<disabledText /></tooltip>
+        </button>
+        <tool id="LRWRA_StreetView" caption="Street View" className="StreetView" loadOnClick="true" largeImage="Images\StreetView32.png" condition="esri_mapping_mapPane">
+          <tooltip heading="Google Street View">Opens Google Street View in your default browser for location clicked on map. NOTE: Browser will be blank if location isn't on a street or if there is no street view for location.<disabledText /></tooltip>
+        </tool>
+        <tool id="LRWRA_SewerSelectTool" caption="Select Sewers" className="SewerSelectTool" loadOnClick="true" smallImage="DarkImages\Select2.png" largeImage="DarkImages\Select2.png" condition="esri_mapping_mapPane">
+          <tooltip heading="Select Sewers">This tool will make Manhole and Sewer Line layers the only selctable layers. Then use a Lasso tool to draw area you want to select sewers from. MANHOLES and SEWER LINES layers must be in the map and named as such.<disabledText /></tooltip>
+        </tool>
+      </controls>
+    </insertModule>
+  </modules>
+</ArcGIS>
