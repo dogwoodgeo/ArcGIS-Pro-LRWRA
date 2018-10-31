@@ -139,10 +139,11 @@ namespace LRWRA
 
             catch (Exception ex)
             {
+                SysModule.LogError(ex.Message, ex.StackTrace);
 
                 string caption = "Module1.MakeSewersLayers method failed!";
                 string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                    $"If problem persist, contact your local GIS nerd.\n\n{ex}";
+                    "If problem persist, contact your local GIS nerd.";
 
                 //Using the ArcGIS Pro SDK MessageBox class
                 MessageBox.Show(message, caption);
@@ -196,9 +197,11 @@ namespace LRWRA
 
             catch (Exception ex)
             {
+                SysModule.LogError(ex.Message, ex.StackTrace);
+
                 string caption = "Module1.MakeManholesLayer method failed!";
                 string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                    $"If problem persist, contact your local GIS nerd.\n\n{ex}";
+                    "If problem persist, contact your local GIS nerd.";
 
                 //Using the ArcGIS Pro SDK MessageBox class
                 MessageBox.Show(message, caption);
@@ -253,9 +256,11 @@ namespace LRWRA
 
             catch (Exception ex)
             {
+                SysModule.LogError(ex.Message, ex.StackTrace);
+
                 string caption = "Module1.MakeLinesLayer method failed!";
                 string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                    $"If problem persist, contact your local GIS nerd.\n\n{ex}";
+                    "If problem persist, contact your local GIS nerd.";
 
                 //Using the ArcGIS Pro SDK MessageBox class
                 MessageBox.Show(message, caption);

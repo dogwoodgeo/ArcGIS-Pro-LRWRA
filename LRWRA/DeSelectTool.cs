@@ -56,6 +56,8 @@ namespace LRWRA
 
                catch (Exception ex)
                {
+                   SysModule.LogError(ex.Message, ex.StackTrace);
+
                    string caption = "Failed to de-select features!";
                    string message = $"Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
                        $"If problem persist, contact your local GIS nerd.\n\n{ex}";
@@ -80,6 +82,8 @@ namespace LRWRA
 
                 catch (Exception ex)
                 {
+                    SysModule.LogError(ex.Message, ex.StackTrace);
+
                     string caption = "Failed to de-select features!";
                     string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
                         $"If problem persist, contact your local GIS nerd.\n\n{ex}";

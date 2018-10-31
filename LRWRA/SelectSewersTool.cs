@@ -70,6 +70,8 @@ namespace LRWRA
 
                 catch (Exception ex)
                 {
+                    SysModule.LogError(ex.Message, ex.StackTrace);
+
                     string caption = "Failed to Select Features";
                     string message = "Process failed.\n\nSave and restart ArcGIS Pro and try process again.\n\n" +
                         "If problem persist, contact your local GIS nerd.";
@@ -91,8 +93,10 @@ namespace LRWRA
                     ActiveMapView.SelectFeatures(geometry, SelectionCombinationMethod.Add);
                 }
 
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    SysModule.LogError(ex.Message, ex.StackTrace);
+
                     string caption = "Failed to select features!";
                     string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
                         "If problem persist, contact your local GIS nerd.";

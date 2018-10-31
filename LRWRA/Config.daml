@@ -17,9 +17,7 @@
         <tab id="LRWRA" caption="LRWRA">
           <group refID="esri_mapping_navigateGroup" />
           <group refID="LRWRA_ContentGroup" />
-          <!--<group refID="LRWRA_SelectGroup" />-->
           <group refID="LRWRA_SelectSewersGroup" />
-          <!--<group refID="LRWRA_ContentGroup" />-->
           <group refID="LRWRA_ExamineGroup" />
           <group refID="LRWRA_Google" />
         </tab>
@@ -28,14 +26,6 @@
         <!-- comment this out if you have no controls on the Addin tab to avoid
               an empty group-->
         <group id="esri_mapping_navigateGroup" caption="Navigate"></group>
-        <!--<group id="LRWRA_SelectGroup" caption="Selection">
-          <tool refID="esri_mapping_selectToolPalette" />
-          <tool refID="esri_geoprocessing_selectByAttributeButton" />
-          <tool refID="esri_geoprocessing_selectByLocationButton" />
-          <tool refID="LRWRA_SewerSelectTool" size="large" />
-          <button refID="esri_mapping_createSelectionLayerButton" size="large" />
-          <tool refID="esri_mapping_clearSelectionButton" size="small" />
-        </group>-->
         <group id="LRWRA_SelectSewersGroup" caption="Select Sewers">
           <tool refID="esri_mapping_selectToolPalette" />
           <tool refID="esri_geoprocessing_selectByAttributeButton" />
@@ -43,16 +33,13 @@
           <tool refID="LRWRA_SelectSewersTool" size="large"/>
           <tool refID="LRWRA_DeSelectTool" size="large"/>
           <buttonPalette refID="LRWRA_MakeLayersButtonPalette" />
-          <tool refID="esri_mapping_clearSelectionButton" size="small" />
-          
-          
+          <tool refID="esri_mapping_clearSelectionButton" size="small" />    
         </group>
         <group id="LRWRA_ContentGroup" caption="Map Content" appearsOnAddInTab="false">
           <!-- host controls within groups -->
           <button refID="LRWRA_AddData" size="large" />
           <button refID="esri_mapping_basemapGallery" />
           <button refID="esri_core_showProjectDockPane" />
-          <!--<tool refID="LRWRA_SelectSewersTool" size="large" />-->
         </group>
         <group id="LRWRA_ExamineGroup" caption="Examine">
           <button refID="esri_mapping_measureToolPalette" />
@@ -89,9 +76,6 @@ NOTE: Browser will be blank if location isn't on a street or if there is no stre
             <disabledText />
           </tooltip>
         </tool>
-        <!--<tool id="LRWRA_SewerSelectTool" caption="Select Sewers" className="SewerSelectTool" loadOnClick="true" smallImage="DarkImages\Select2.png" largeImage="DarkImages\Select2.png" condition="esri_mapping_mapPane">
-          <tooltip heading="Select Sewers">This tool will make Manhole and Sewer Line layers the only selctable layers. Then use a Lasso tool to draw area you want to select sewers from. MANHOLES and SEWER LINES layers must be in the map and named as such.<disabledText /></tooltip>
-        </tool>-->
         <tool id="LRWRA_SelectSewersTool" 
               caption="Select Sewers" 
               className="SelectSewersTool" 
@@ -100,7 +84,7 @@ NOTE: Browser will be blank if location isn't on a street or if there is no stre
               largeImage="Images\SelectSewers.png" 
               condition="esri_mapping_mapPane">
           <tooltip heading="Select Sewer Features">
-Use this tool to select Manhole and Sewer Lines features by drawing area ecompasing features you wish to select. 
+Use this tool to select Manhole and Sewer Line features by drawing area ecompasing features you wish to select. 
             
 "Manholes" and "Sewer Lines" layers must be in the map and named as such for tool to work.
             <disabledText />
