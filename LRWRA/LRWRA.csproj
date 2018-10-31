@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="AddData.cs" />
     <Compile Include="Daml.cs" />
+    <Compile Include="SelectSewersTool.cs" />
     <Compile Include="SewerSelectTool.cs" />
     <Compile Include="SysModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +182,16 @@
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="Images\Select2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\DeSelect.png" />
+    <AddInContent Include="Images\MakeLinesLayer.png" />
+    <AddInContent Include="Images\MakeLinesLayer16.png" />
+    <AddInContent Include="Images\MakeManholesLayer.png" />
+    <AddInContent Include="Images\MakeManholesLayer16.png" />
+    <AddInContent Include="Images\MakeSewerLayer.png" />
+    <AddInContent Include="Images\MakeSewerLayer16.png" />
+    <AddInContent Include="Images\SelectSewers.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--
