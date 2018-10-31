@@ -3,8 +3,6 @@ Primary ArcGIS Pro add-in created for Little Rock Water Reclamation Authority GI
 
 Add-in also contains code to log all exceptions thrown by users to a **.txt** file on my organizations network.
 
-
-
  
 
 Original tools and controls used in this add-in can also be found in individual repositories
@@ -13,7 +11,7 @@ Original tools and controls used in this add-in can also be found in individual 
 
 [Google Street View](https://github.com/dogwoodgeo/ArcGIS-Pro-GoogleStreetView)
 
-Select Sewers: Coming soon.
+[Select Sewers](https://github.com/dogwoodgeo/ArcGIS-Pro-SewerSelect)
 
 
 
@@ -32,14 +30,14 @@ Clone or download the repository. Open Visual Studio 2015 or 2017, build solutio
 ### Prerequisites
 
 ```
-Language:	C#
-Contributor:	Bradley Jones, bjones@dogwoodgeo.com
-Organization:	Little Rock Water Reclamation Authority (LRWRA)
-Org Site:	https://git.lrwu.com/portal
-Date:	9/20/2018
-ArcGIS Pro:	2.2
-ArcGIS Pro SDK:	2.2
-Visual Studio:	2017, 2015
+Language:				C#
+Contributor:			Bradley Jones, bjones@dogwoodgeo.com
+Organization:			Little Rock Water Reclamation Authority (LRWRA)
+Org Site:				https://git.lrwu.com/portal
+Date:					9/20/2018
+ArcGIS Pro:				2.2
+ArcGIS Pro SDK:			2.2
+Visual Studio:			2017, 2015
 .NET Target Framework:	4.6.1
 ```
 

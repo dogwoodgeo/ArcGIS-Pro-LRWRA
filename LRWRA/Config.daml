@@ -1,11 +1,11 @@
 ﻿<ArcGIS defaultAssembly="LRWRA.dll" defaultNamespace="LRWRA" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
-  <AddInInfo id="{fd61cce9-b66c-4f78-996e-4b45fdd51b85}" version="2.1" desktopVersion="2.1.10257">
+  <AddInInfo id="{fd61cce9-b66c-4f78-996e-4b45fdd51b85}" version="3.0" desktopVersion="2.1.10257">
     <Name>LRWRA</Name>
-    <Description>The main LRWRA add-in</Description>
+    <Description>The main add-in for Little Rock Water Reclamation Authority</Description>
     <Image>Images\AddinDesktop32.png</Image>
     <Author>Bradley.Jones</Author>
     <Company>Little Rock Water Reclamation Authority</Company>
-    <Date>10/5/2018 12:21:52 PM, 2018</Date>
+    <Date>10/31/2018 12:21:52 PM, 2018</Date>
     <Subject>Framework</Subject>
     <!-- Note subject can be one or more of these topics:
                     Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
