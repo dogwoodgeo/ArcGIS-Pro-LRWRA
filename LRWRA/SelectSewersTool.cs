@@ -68,7 +68,7 @@ namespace LRWRA
                     }
                 }
 
-                catch (Exception)
+                catch (Exception ex)
                 {
                     string caption = "Failed to Select Features";
                     string message = "Process failed.\n\nSave and restart ArcGIS Pro and try process again.\n\n" +

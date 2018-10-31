@@ -42,6 +42,7 @@
           <tool refID="esri_geoprocessing_selectByLocationButton" />
           <tool refID="LRWRA_SelectSewersTool" size="large"/>
           <tool refID="LRWRA_DeSelectTool" size="large"/>
+          <buttonPalette refID="LRWRA_MakeLayersButtonPalette" />
           <tool refID="esri_mapping_clearSelectionButton" size="small" />
           
           
@@ -119,7 +120,56 @@ Map must have selected features for this tool to be activated (not Grayed out).
             <disabledText />
           </tooltip>
         </tool>
+               <button id="LRWRA_MakeLayersButtonPalette_Items_SewersButton" 
+                caption="Manholes and Lines Selection Layer" 
+                className="MakeLayersButtonPalette_sewersbutton"
+                condition="esri_mapping_activeMapView_hasFeatureSelectionCondition"
+                loadOnClick="true" 
+                smallImage="Images\MakeSewerLayer16.png" 
+                largeImage="Images\MakeSewerLayer.png">
+          <tooltip heading="Make Manholes and Sewer Lines Layer">
+Use this button to create Manholes and Sewer Lines layers from the selected features.
+
+Manholes and Sewer Lines layers MUST be present in map and named as such, as well as, have selected features, for this tool to work.
+            <disabledText />
+          </tooltip>
+        </button>
+        <button id="LRWRA_MakeLayersButtonPalette_Items_ManholesButton" 
+                className="MakeLayersButtonPalette_manholesbutton" 
+                caption="Manholes Selection Layer"
+                condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" 
+                loadOnClick="true" 
+                smallImage="Images\MakeManholesLayer16.png" 
+                largeImage="Images\MakeManholesLayer.png">
+          <tooltip heading="Make Manholes layer">
+Use this button to create Manholes layer from the selected manholes.
+
+Manholes layer MUST be present in map and named as such, as well as, have selected features, for this tool to work.
+            <disabledText />
+          </tooltip>
+        </button>
+        <button id="LRWRA_MakeLayersButtonPalette_Items_LinesButton" 
+                caption="Sewer Lines Selection Layer" 
+                className="MakeLayersButtonPalette_linesbutton"
+                condition="esri_mapping_activeMapView_hasFeatureSelectionCondition"
+                loadOnClick="true" 
+                smallImage="Images\MakeLinesLayer16.png" 
+                largeImage="Images\MakeLinesLayer.png">
+          <tooltip heading="Make Sewer Lines Layer">
+Use this button to create Sewer Lines layer from the selected manholes.
+
+Sewer Lines layer MUST be present in map and named as such, as well as, have selected features, for this tool to work.
+            <disabledText />
+          </tooltip>
+        </button>
       </controls>
+      <palettes>
+        <buttonPalette id="LRWRA_MakeLayersButtonPalette" caption="Make Layers from Selections" dropDown="false" menuStyle="true">
+          <button refID="LRWRA_MakeLayersButtonPalette_Items_SewersButton" />
+          <button refID="LRWRA_MakeLayersButtonPalette_Items_ManholesButton" />
+          <button refID="LRWRA_MakeLayersButtonPalette_Items_LinesButton" />
+        </buttonPalette>
+      </palettes>
     </insertModule>
   </modules>
 </ArcGIS>

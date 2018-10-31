@@ -16,7 +16,7 @@ using ArcGIS.Desktop.Framework.Dialogs;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using ArcGIS.Desktop.Mapping;
 
-namespace SewerSelect
+namespace LRWRA
 {
     internal class DeSelectTool : MapTool
     {
