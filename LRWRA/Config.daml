@@ -41,6 +41,7 @@
           <tool refID="esri_geoprocessing_selectByAttributeButton" />
           <tool refID="esri_geoprocessing_selectByLocationButton" />
           <tool refID="LRWRA_SelectSewersTool" size="large"/>
+          <tool refID="LRWRA_DeSelectTool" size="large"/>
           <tool refID="esri_mapping_clearSelectionButton" size="small" />
           
           
@@ -100,7 +101,21 @@ NOTE: Browser will be blank if location isn't on a street or if there is no stre
           <tooltip heading="Select Sewer Features">
 Use this tool to select Manhole and Sewer Lines features by drawing area ecompasing features you wish to select. 
             
-MANHOLES and SEWER LINES layers must be in the map and named as such for tool to work.
+"Manholes" and "Sewer Lines" layers must be in the map and named as such for tool to work.
+            <disabledText />
+          </tooltip>
+        </tool>
+              <tool id="LRWRA_DeSelectTool"
+              caption="De-Select"
+              className="DeSelectTool"
+              loadOnClick="true"
+              smallImage="Images\GenericButtonRed16.png"
+              largeImage="Images\Deselect.png"
+              condition="esri_mapping_activeMapView_hasFeatureSelectionCondition">
+          <tooltip heading="De-Select Sewer Features">
+Use this tool to de-select any features that are currently selected based on a click-point. Click on the features you wish to remove from the selection. 
+
+Map must have selected features for this tool to be activated (not Grayed out).
             <disabledText />
           </tooltip>
         </tool>

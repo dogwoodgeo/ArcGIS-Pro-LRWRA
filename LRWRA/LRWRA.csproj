@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="AddData.cs" />
     <Compile Include="Daml.cs" />
+    <Compile Include="DeSelectTool.cs" />
     <Compile Include="SelectSewersTool.cs" />
     <Compile Include="SewerSelectTool.cs" />
     <Compile Include="SysModule.cs" />
