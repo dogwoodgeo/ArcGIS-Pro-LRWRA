@@ -13,6 +13,8 @@ Original tools and controls used in this add-in can also be found in individual 
 
 [Select Sewers](https://github.com/dogwoodgeo/ArcGIS-Pro-SewerSelect)
 
+[Add Work History Tables](https://github.com/dogwoodgeo/ArcGIS-Pro-AddWorkHistTables)
+
 
 
 **Note**: I am a novice .Net developer, at best.  The add-in works, but feel free to let me know if you see any code that is "wrong" or just plain bad.  

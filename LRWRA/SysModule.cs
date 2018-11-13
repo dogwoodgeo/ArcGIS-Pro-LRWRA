@@ -6,6 +6,8 @@ using ArcGIS.Desktop.Framework.Dialogs;
 using ArcGIS.Desktop.Mapping;
 using ArcGIS.Core.CIM;
 using System.Linq;
+using ArcGIS.Desktop.Framework.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace LRWRA
 {
@@ -267,6 +269,41 @@ namespace LRWRA
             }
         }
 
+        public static void SetDisplayField(StandaloneTable saTable, string tableName, string fieldName)
+        {
+            var mapView = MapView.Active.Map;
+
+            QueuedTask.Run(() =>
+            {
+                //Gets a list of the standalone tables in map with the name specified in the method arguments.
+                IReadOnlyList<StandaloneTable> tables = mapView.FindStandaloneTables(tableName);
+                foreach (var table in tables)
+                {
+                    //Gets the list of fields from the stand alone table.
+                    var descriptions = table.GetFieldDescriptions();
+                    foreach (var desc in descriptions)
+                    {
+                        if (desc.Name == fieldName) // If field name equals "COMPDTTM"
+                        {
+                            //Creates variable that's equal to "COMPDTTM"
+                            string displayName = desc.Name;
+
+                            // Get's the CIM definition from the StandaloneTable
+                            var cimTableDefinition = table.GetDefinition() as CIMStandaloneTable;
+
+                            // Set DisplayField property of the cimTableDefinition equall to displayName("COMPDTTM")
+                            cimTableDefinition.DisplayField = displayName;
+
+                            // USe the SetDefinition method to apply the modified table definition (cimTableDefninition)
+                            saTable.SetDefinition(cimTableDefinition);
+
+                            // Use to check the result when debugin in break point.
+                            var result = table.GetDefinition().DisplayField;
+                        }
+                    }
+                }
+            });
+        }
 
         #region Overrides
         /// <summary>
