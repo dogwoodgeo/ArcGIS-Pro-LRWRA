@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddData.cs" />
+    <Compile Include="AddManholesTrace.cs" />
     <Compile Include="Daml.cs" />
     <Compile Include="DeSelectTool.cs" />
     <Compile Include="MakeLayersButtonPalette.cs" />
@@ -105,6 +106,8 @@
     <Compile Include="SysModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StreetView.cs" />
+    <Compile Include="TraceDownstream.cs" />
+    <Compile Include="TraceUpstream.cs" />
     <Compile Include="WorkHistTables.cs" />
   </ItemGroup>
   <ItemGroup>

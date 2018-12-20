@@ -8,6 +8,7 @@ using ArcGIS.Core.CIM;
 using System.Linq;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using System.Collections.Generic;
+using ArcGIS.Core.Data;
 
 namespace LRWRA
 {
@@ -141,7 +142,7 @@ namespace LRWRA
 
             catch (Exception ex)
             {
-                SysModule.LogError(ex.Message, ex.StackTrace);
+                LogError(ex.Message, ex.StackTrace);
 
                 string caption = "Module1.MakeSewersLayers method failed!";
                 string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
@@ -304,6 +305,98 @@ namespace LRWRA
                 }
             });
         }
+
+        public static void BuildDictionariesAsync(Dictionary<int, List<string>> arcNodeListDictionary, Dictionary<string, List<int>> nodeArcListDictionary)
+        {
+            QueuedTask.Run(() =>
+            {
+                try
+                {
+                    // Global vairables
+                    var map = MapView.Active.Map;
+                    var arcLayer = map.FindLayers("Sewer Lines").FirstOrDefault() as FeatureLayer;
+                    var nodeLayer = map.FindLayers("Manholes").FirstOrDefault() as FeatureLayer;
+
+                    var arcTableDef = arcLayer.GetTable().GetDefinition(); //table definition of featurelayer
+                    var nodeTableDef = nodeLayer.GetTable().GetDefinition(); //table definition of featurelayer
+
+                    // BUILD ARC AND NODE DICTIONARIES
+                    // arc ObjectID-- > { UPS_MH, DWN_MH}  Only 2 VALUES for each KEY
+                    // node MH Number -- >{ Arc OBjectID, Arc OBjectID, ...} Can have 1 or more VALUES for each KEY
+
+                    // Get the indices for the fields
+                    int objIDIdx = arcTableDef.FindField("ObjectID");
+                    int nodeUpIdx = arcTableDef.FindField("UNITID");
+                    int nodeDwnIdx = arcTableDef.FindField("UNITID2");
+
+                    using (ArcGIS.Core.Data.RowCursor rowCursor = arcLayer.Search())
+                    {
+                        while (rowCursor.MoveNext())
+                        {
+                            using (Row row = rowCursor.Current)
+                            {
+                                //List<string> unitIDValueList = new List<string>();
+                                //List<int> objIDValueList = new List<int>();
+                                var objIDVal = row.GetOriginalValue(objIDIdx);
+                                var nodeUpVal = row.GetOriginalValue(nodeUpIdx);
+                                var nodeDownVal = row.GetOriginalValue(nodeDwnIdx);
+
+                                // Populate arcNodeListDictionary keys and values
+                                if (arcNodeListDictionary.ContainsKey((int)objIDVal))
+                                {
+                                    //Do nothing
+                                }
+                                else
+                                {
+                                    arcNodeListDictionary.Add((int)objIDVal, new List<string>());
+                                    arcNodeListDictionary[(int)objIDVal].Add((string)nodeUpVal);
+                                    arcNodeListDictionary[(int)objIDVal].Add((string)nodeDownVal);
+                                }
+
+                                // Check of the nodeArcListDictionary contains nodeUpVal as KEY- Add nodeUpVal if FALSE
+                                if (nodeArcListDictionary.ContainsKey((string)nodeUpVal))
+                                {
+
+                                    nodeArcListDictionary[(string)nodeUpVal].Add((int)objIDVal);
+
+                                }
+                                else
+                                {
+                                    nodeArcListDictionary.Add((string)nodeUpVal, new List<int>());
+                                    nodeArcListDictionary[(string)nodeUpVal].Add((int)objIDVal);
+                                }
+
+                                // Check of the nodeArcListDictionary contains nodeDownVal as KEY- Add nodeDownVal if FALSE
+                                if (nodeArcListDictionary.ContainsKey((string)nodeDownVal))
+                                {
+                                    //Do nothing
+                                    nodeArcListDictionary[(string)nodeDownVal].Add((int)objIDVal);
+                                }
+                                else
+                                {
+                                    nodeArcListDictionary.Add((string)nodeDownVal, new List<int>());
+                                    nodeArcListDictionary[(string)nodeDownVal].Add((int)objIDVal);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    LogError(ex.Message, ex.StackTrace);
+
+                    string caption = "ERROR!";
+                    string message = "Backround process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
+                        "If problem persist, contact your local GIS nerd.";
+
+                    //Using the ArcGIS Pro SDK MessageBox class
+                    MessageBox.Show(message, caption);
+                }
+ 
+            });
+        }
+
 
         #region Overrides
         /// <summary>
