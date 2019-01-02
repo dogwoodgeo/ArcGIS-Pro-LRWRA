@@ -202,6 +202,13 @@
     <AddInContent Include="Images\WorkHistTables.png" />
     <AddInContent Include="Images\WorkHistTables16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\TraceDown.png" />
+    <AddInContent Include="Images\TraceUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\AddManholes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--
   PackageAction can be:

@@ -1,11 +1,11 @@
 ﻿<ArcGIS defaultAssembly="LRWRA.dll" defaultNamespace="LRWRA" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
-  <AddInInfo id="{fd61cce9-b66c-4f78-996e-4b45fdd51b85}" version="3.1" desktopVersion="2.1.10257">
+  <AddInInfo id="{fd61cce9-b66c-4f78-996e-4b45fdd51b85}" version="4.0" desktopVersion="2.1.10257">
     <Name>LRWRA</Name>
     <Description>The main add-in for Little Rock Water Reclamation Authority</Description>
     <Image>Images\AddinDesktop32.png</Image>
     <Author>Bradley.Jones</Author>
     <Company>Little Rock Water Reclamation Authority</Company>
-    <Date>11/13/2018</Date>
+    <Date>12/20/2018</Date>
     <Subject>Framework</Subject>
     <!-- Note subject can be one or more of these topics:
                     Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
@@ -47,8 +47,6 @@
           <button refID="esri_mapping_basemapGallery" />
           <button refID="esri_core_showProjectDockPane" />
           <button refID="LRWRA_WorkHistTables" size="large" />
-          <tool refID="LRWRA_TraceDownstream" size="large" />
-          <button refID="LRWRA_AddManholesTrace" size="large" />
         </group>
         <group id="LRWRA_ExamineGroup" caption="Examine">
           <button refID="esri_mapping_measureToolPalette" />
@@ -164,8 +162,8 @@ This will enable you to view work histories for manholes and sewer lines in the 
               Up" 
               className="TraceUpstream" 
               loadOnClick="true" 
-              smallImage="Images\GenericButtonRed16.png" 
-              largeImage="Images\GenericButtonRed32.png" 
+              smallImage="Images\TraceUp.png" 
+              largeImage="Images\TraceUp.png" 
               condition="esri_mapping_mapPane">
           <tooltip heading="Trace Upstream">
             Used to trace sewers upstream from a single selected manhole.<disabledText /></tooltip>
@@ -175,8 +173,8 @@ This will enable you to view work histories for manholes and sewer lines in the 
               Down" 
               className="TraceDownstream" 
               loadOnClick="true" 
-              smallImage="Images\GenericButtonRed16.png" 
-              largeImage="Images\GenericButtonRed32.png" 
+              smallImage="Images\TraceDown.png" 
+              largeImage="Images\TraceDown.png" 
               condition="esri_mapping_mapPane">
           <tooltip heading="Trace Downstream">
             Used to trace sewers downstream from a single selected manhole.<disabledText /></tooltip>
@@ -186,8 +184,8 @@ This will enable you to view work histories for manholes and sewer lines in the 
                 Manholes" 
                 className="AddManholesTrace" 
                 loadOnClick="true" 
-                smallImage="Images\GenericButtonBlue16.png" 
-                largeImage="Images\GenericButtonBlue32.png">
+                smallImage="Images\AddManholes.png" 
+                largeImage="Images\AddManholes.png">
           <tooltip heading="Add Manholes To Trace">
             Selects manholes associated with trace that has been performed.<disabledText />
           </tooltip>

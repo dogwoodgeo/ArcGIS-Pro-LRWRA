@@ -15,6 +15,8 @@ Original tools and controls used in this add-in can also be found in individual 
 
 [Add Work History Tables](https://github.com/dogwoodgeo/ArcGIS-Pro-AddWorkHistTables)
 
+[Trace](https://github.com/dogwoodgeo/ArcGIS-Pro-Trace)
+
 
 
 **Note**: I am a novice .Net developer, at best.  The add-in works, but feel free to let me know if you see any code that is "wrong" or just plain bad.  
@@ -23,7 +25,7 @@ Original tools and controls used in this add-in can also be found in individual 
 
 Clone or download the repository. Open Visual Studio 2015 or 2017, build solution, launch ArcGIS Pro and check the **LRWRA** tab.
 
-![](assets/2018-10-10_13-52-39.png)
+![](assets/2019-01-02_12-51-05.png)
 
 
 
@@ -36,7 +38,7 @@ Language:				C#
 Contributor:			Bradley Jones, bjones@dogwoodgeo.com
 Organization:			Little Rock Water Reclamation Authority (LRWRA)
 Org Site:				https://git.lrwu.com/portal
-Date:					9/20/2018
+Date:					1/2/2019
 ArcGIS Pro:				2.2
 ArcGIS Pro SDK:			2.2
 Visual Studio:			2017, 2015
