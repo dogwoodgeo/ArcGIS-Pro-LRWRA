@@ -17,7 +17,7 @@ Original tools and controls used in this add-in can also be found in individual 
 
 [Trace](https://github.com/dogwoodgeo/ArcGIS-Pro-Trace)
 
-
+**Update**: Fixed a bug in the Trace tool that caused it to hang-up and required you to shut ArcGIS Pro down in Task Manager.  See the Trace repository above for more information.
 
 **Note**: I am a novice .Net developer, at best.  The add-in works, but feel free to let me know if you see any code that is "wrong" or just plain bad.  
 
