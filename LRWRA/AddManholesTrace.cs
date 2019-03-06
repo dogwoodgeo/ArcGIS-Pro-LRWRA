@@ -37,15 +37,15 @@ namespace LRWRA
                     // Check for the SEWER LINES Layer and MANHOLES layers in the map.
                     if (mhExists == false && sewerExists == false)
                     {
-                        MessageBox.Show("Manholes & Sewers are missing from map.", "WARNING");
+                        MessageBox.Show("Manholes & Sewers are missing from map.", "Missing Layer(s)");
                     }
                     else if (mhExists == false && sewerExists)
                     {
-                        MessageBox.Show("Sewer Lines layer is present. \n\nManholes layer is missing from map.", "WARNING");
+                        MessageBox.Show("Sewer Lines layer is present. \n\nManholes layer is missing from map.", "Missing Layer(s)");
                     }
                     else if (mhExists && sewerExists == false)
                     {
-                        MessageBox.Show("Manholes layer is present. \n\nSewers layer is missing from map.", "WARNING");
+                        MessageBox.Show("Manholes layer is present. \n\nSewers layer is missing from map.", "Missing Layer(s)");
                     }
                     else
                     {
@@ -56,7 +56,7 @@ namespace LRWRA
 
                         if (selectCount == 0)
                         {
-                            MessageBox.Show("No sewer trace is in map! \n\nA sewer trace must be performed to add\nmanholes associate with trace.", "WARNING");
+                            MessageBox.Show("No sewer trace is in map! \n\nA sewer trace must be performed to add\nmanholes associate with trace.", "Sewer Trace Missing!");
                         }
 
                         else
@@ -81,8 +81,8 @@ namespace LRWRA
                 {
                     SysModule.LogError(ex.Message, ex.StackTrace);
 
-                    string caption = "Process Failed!";
-                    string message = "Failed to add manholes selection to trace. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
+                    string caption = "Add Manholes to Trace Failed";
+                    string message = "Failed to add manholes selection to trace. \n\nSave and restart ArcGIS Pro and try process again.\n" +
                         "If problem persist, contact your local GIS nerd.";
                     progDial.Hide();
 

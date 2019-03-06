@@ -101,6 +101,8 @@
     <Compile Include="AddManholesTrace.cs" />
     <Compile Include="Daml.cs" />
     <Compile Include="DeSelectTool.cs" />
+    <Compile Include="GetPrevMaint.cs" />
+    <Compile Include="GetWorkHistory.cs" />
     <Compile Include="MakeLayersButtonPalette.cs" />
     <Compile Include="SelectSewersTool.cs" />
     <Compile Include="SysModule.cs" />
@@ -208,6 +210,12 @@
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="Images\AddManholes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\PrevMaint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\WorkHist.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--

@@ -58,21 +58,21 @@ namespace LRWRA
                     {
                         MessageBox.Show("Manholes & Sewer Lines are missing from map.\n" +
                             "'Manholes' and 'Sewer Lines' layers must be named exactly as such for trace to work",
-                            "WARNING!");
+                            "Missing Layer(s)");
                     }
                     else if (mhExists == false && sewerExists)
                     {
                         MessageBox.Show("Sewer Lines layer is present. " +
                             "\n\nManholes layer is missing from map." +
                             "\n'Manholes' layer must be named exactly as such for trace to work",
-                            "WARNING!");
+                            "Missing Layer(s)");
                     }
                     else if (mhExists && sewerExists == false)
                     {
                         MessageBox.Show("Manholes layer is present. " +
                             "\n\nSewer Lines layer is missing from map." +
                             "\n'Sewer Lines' layer must be named exactly as such for trace to work",
-                            "WARNING!");
+                            "Missing Layer(s)");
                     }
                     else
                     {
@@ -102,10 +102,10 @@ namespace LRWRA
                 {
                     SysModule.LogError(ex.Message, ex.StackTrace);
 
-                    string caption = "WARNING!";
+                    string caption = "Selection Failed";
                     string message = "Manhole selection failed. " +
                     "\n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                    "If problem persist, contact your local GIS nerd.";
+                    "If problem persist, contact your local GIS Admin.";
 
                     //Using the ArcGIS Pro SDK MessageBox class
                     MessageBox.Show(message, caption);
@@ -133,14 +133,12 @@ namespace LRWRA
                     if (selectCount == 0)
                     {
                         MessageBox.Show("No manhole was selected." +
-                            "\n\nTry selecting a manhole again.", 
-                            "WARNING!");
+                            "\n\nTry selecting a manhole again.");
                     }
                     else if (selectCount > 1)
                     {
                         MessageBox.Show("More than one manhole selected." +
-                            "\n\nTry selecting manholes again.",
-                            "WARNING!");
+                            "\n\nTry selecting manholes again. Zooming in may help.");
                     }
                     else
                     {
@@ -202,7 +200,7 @@ namespace LRWRA
 
                         if (workArcList.Count() == 0)
                         {
-                            MessageBox.Show("No downstream sewer lines found.", "WARNING!");
+                            MessageBox.Show("No downstream sewer lines found.", "Warning!");
                         }
 
                         // Create dictionary to store downstream arcs that will be used to create query string.
@@ -325,9 +323,9 @@ namespace LRWRA
                 {
                     SysModule.LogError(ex.Message, ex.StackTrace);
 
-                    string caption = "WARNING!";
-                    string message = "Downstream trace failed! \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                        "If problem persist, contact your local GIS nerd.";
+                    string caption = "Trace Failed";
+                    string message = "Downstream trace failed! \nSave and restart ArcGIS Pro and try process again.\n" +
+                        "If problem persist, contact your GIS Admin.";
 
                     progDial.Hide();
 

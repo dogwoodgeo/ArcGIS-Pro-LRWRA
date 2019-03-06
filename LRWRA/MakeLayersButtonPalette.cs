@@ -45,8 +45,8 @@ namespace LRWRA
                 {
                     SysModule.LogError(ex.Message, ex.StackTrace);
 
-                    string caption = "Create manholes and sewer lines selection layer failed!";
-                    string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
+                    string caption = "Create selection layer(s) failed!";
+                    string message = "Process failed. \nSave and restart ArcGIS Pro and try process again.\n" +
                         "If problem persist, contact your local GIS nerd.";
 
                     //Using the ArcGIS Pro SDK MessageBox class
@@ -79,7 +79,7 @@ namespace LRWRA
                     {
                         MessageBox.Show("There is no layer named 'Manholes' in map. " +
                             "\n\nIf a manholes layer is present, make sure the layer is named 'Manholes'. " +
-                            "This tool will not work unless the layer is spelled exactly like above.", "Warning");
+                            "This tool will not work unless the layer is spelled exactly like above.", "Missing Layer(s)");
                     }
                 }
 
@@ -87,8 +87,8 @@ namespace LRWRA
                 {
                     SysModule.LogError(ex.Message, ex.StackTrace);
 
-                    string caption = "Create manholes selection layer failed!";
-                    string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
+                    string caption = "Create selection layer(s) failed!";
+                    string message = "Process failed. \nSave and restart ArcGIS Pro and try process again.\n" +
                         "If problem persist, contact your local GIS nerd.";
 
                     //Using the ArcGIS Pro SDK MessageBox class
@@ -119,7 +119,7 @@ namespace LRWRA
                     {
                         MessageBox.Show("There is no layer named 'Sewer Lines' in map. " +
                             "\n\nIf a sewer lines layer is present, make sure the layer is named 'Sewer Lines'. " +
-                            "This tool will not work unless the layer is spelled exactly like above.", "Warning");
+                            "This tool will not work unless the layer is spelled exactly like above.", "Missing Layer(s)");
                     }
                 }
 
@@ -127,7 +127,7 @@ namespace LRWRA
                 {
                     SysModule.LogError(ex.Message, ex.StackTrace);
 
-                    string caption = "Create sewer lines selection layer button failed!";
+                    string caption = "Failed to Create Selection Layer(s)!";
                     string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
                         "If problem persist, contact your local GIS nerd.";
 

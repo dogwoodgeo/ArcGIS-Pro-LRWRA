@@ -60,7 +60,7 @@ namespace LRWRA
 
                    string caption = "Failed to de-select features!";
                    string message = $"Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                       $"If problem persist, contact your local GIS nerd.\n\n{ex}";
+                       $"If problem persist, contact your GIS Admin.";
 
                    //Using the ArcGIS Pro SDK MessageBox class
                    MessageBox.Show(message, caption);
@@ -86,7 +86,7 @@ namespace LRWRA
 
                     string caption = "Failed to de-select features!";
                     string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                        $"If problem persist, contact your local GIS nerd.\n\n{ex}";
+                        $"If problem persist, contact your GIS Admin";
 
                     //Using the ArcGIS Pro SDK MessageBox class
                     MessageBox.Show(message, caption);

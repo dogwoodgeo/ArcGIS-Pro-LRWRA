@@ -1,11 +1,11 @@
 ﻿<ArcGIS defaultAssembly="LRWRA.dll" defaultNamespace="LRWRA" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
-  <AddInInfo id="{fd61cce9-b66c-4f78-996e-4b45fdd51b85}" version="4.0" desktopVersion="2.1.10257">
+  <AddInInfo id="{fd61cce9-b66c-4f78-996e-4b45fdd51b85}" version="4.5" desktopVersion="2.1.10257">
     <Name>LRWRA</Name>
-    <Description>The main add-in for Little Rock Water Reclamation Authority</Description>
+    <Description>The main ArcGIS Pro add-in for Little Rock Water Reclamation Authority</Description>
     <Image>Images\AddinDesktop32.png</Image>
     <Author>Bradley.Jones</Author>
     <Company>Little Rock Water Reclamation Authority</Company>
-    <Date>12/20/2018</Date>
+    <Date>3/06/2019</Date>
     <Subject>Framework</Subject>
     <!-- Note subject can be one or more of these topics:
                     Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
@@ -19,6 +19,7 @@
           <group refID="LRWRA_ContentGroup" />
           <group refID="LRWRA_SelectSewersGroup" />
           <group refID="LRWRA_TraceGroup" />
+          <group refID="LRWRA_Maintenance" />
           <group refID="LRWRA_ExamineGroup" />
           <group refID="LRWRA_Google" />
         </tab>
@@ -39,157 +40,121 @@
         <group id="LRWRA_TraceGroup" caption="Trace">
           <tool refID="LRWRA_TraceUpstream" size="large" />
           <tool refID="LRWRA_TraceDownstream" size="large" />
-          <button refID="LRWRA_AddManholesTrace" size="large"/>
+          <button refID="LRWRA_AddManholesTrace" size="large" />
         </group>
         <group id="LRWRA_ContentGroup" caption="Map Content" appearsOnAddInTab="false">
           <!-- host controls within groups -->
           <button refID="LRWRA_AddData" size="large" />
           <button refID="esri_mapping_basemapGallery" />
           <button refID="esri_core_showProjectDockPane" />
-          <button refID="LRWRA_WorkHistTables" size="large" />
         </group>
         <group id="LRWRA_ExamineGroup" caption="Examine">
           <button refID="esri_mapping_measureToolPalette" />
           <button refID="esri_mapping_showLocateDockPane" />
-        </group>
-        <group id="LRWRA_Google" caption="Google">
           <tool refID="LRWRA_StreetView" size="large" />
+        </group>
+        <!--<group id="LRWRA_Google" caption="Google">
+          <tool refID="LRWRA_StreetView" size="large" />
+        </group>-->
+        <group id="LRWRA_Maintenance" caption="Maintenance">
+          <button refID="LRWRA_WorkHistTables" size="large" />
+          <tool refID="LRWRA_GetWorkHistory" size="large" />
+          <tool refID="LRWRA_GetPrevMaint" size="large" />
         </group>
       </groups>
       <controls>
         <!-- add your controls here -->
-        <button id="LRWRA_AddData" 
-                caption="Add Layers" 
-                className="AddData" 
-                loadOnClick="true" 
-                largeImage="Images\AddLayerBGJ.png">
+        <button id="LRWRA_AddData" caption="Add Layers" className="AddData" loadOnClick="true" largeImage="Images\AddLayerBGJ.png">
           <tooltip heading="Add LRWRA Layers">
 Add LRWRA Layers to map. Use 'Ctrl' and 'Click' to select multiple layers to add. 
 
 NOTE: Some file types cannot be added to a map.
             <disabledText /></tooltip>
         </button>
-        <tool id="LRWRA_StreetView" 
-              caption="Street View" 
-              className="StreetView" 
-              loadOnClick="true" 
-              largeImage="Images\StreetView32.png" 
-              condition="esri_mapping_mapPane">
+        <tool id="LRWRA_StreetView" caption="Street View" className="StreetView" loadOnClick="true" largeImage="Images\StreetView32.png" condition="esri_mapping_mapPane">
           <tooltip heading="Google Street View">
 Opens Google Street View in your default browser for location clicked on map. 
 
 NOTE: Browser will be blank if location isn't on a street or if there is no street view for location.
             <disabledText /></tooltip>
         </tool>
-        <tool id="LRWRA_SelectSewersTool" 
-              caption="Select Sewers" 
-              className="SelectSewersTool" 
-              loadOnClick="true" 
-              smallImage="Images\GenericButtonRed16.png" 
-              largeImage="Images\SelectSewers.png" 
-              condition="esri_mapping_mapPane">
+        <tool id="LRWRA_SelectSewersTool" caption="Select Sewers" className="SelectSewersTool" loadOnClick="true" smallImage="Images\GenericButtonRed16.png" largeImage="Images\SelectSewers.png" condition="esri_mapping_mapPane">
           <tooltip heading="Select Sewer Features">
 Use this tool to select Manhole and Sewer Line features by drawing area ecompasing features you wish to select. 
             
 "Manholes" and "Sewer Lines" layers must be in the map and named as such for tool to work.
             <disabledText /></tooltip>
         </tool>
-        <tool id="LRWRA_DeSelectTool" 
-              caption="De-Select" 
-              className="DeSelectTool" 
-              loadOnClick="true" 
-              smallImage="Images\GenericButtonRed16.png" 
-              largeImage="Images\Deselect.png" 
-              condition="esri_mapping_activeMapView_hasFeatureSelectionCondition">
+        <tool id="LRWRA_DeSelectTool" caption="De-Select" className="DeSelectTool" loadOnClick="true" smallImage="Images\GenericButtonRed16.png" largeImage="Images\Deselect.png" condition="esri_mapping_activeMapView_hasFeatureSelectionCondition">
           <tooltip heading="De-Select Sewer Features">
 Use this tool to de-select any features that are currently selected based on a click-point. Click on the features you wish to remove from the selection. 
 
 Map must have selected features for this tool to be activated (not Grayed out).
             <disabledText /></tooltip>
         </tool>
-        <button id="LRWRA_MakeLayersButtonPalette_Items_SewersButton" 
-                caption="Manholes and Lines Selection Layer" 
-                className="MakeLayersButtonPalette_sewersbutton" 
-                condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" 
-                loadOnClick="true" 
-                smallImage="Images\MakeSewerLayer16.png" 
-                largeImage="Images\MakeSewerLayer.png">
+        <button id="LRWRA_MakeLayersButtonPalette_Items_SewersButton" caption="Manholes and Lines Selection Layer" className="MakeLayersButtonPalette_sewersbutton" condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" loadOnClick="true" smallImage="Images\MakeSewerLayer16.png" largeImage="Images\MakeSewerLayer.png">
           <tooltip heading="Make Manholes and Sewer Lines Layer">
 Use this button to create Manholes and Sewer Lines layers from the selected features.
 
 Manholes and Sewer Lines layers MUST be present in map and named as such, as well as, have selected features, for this tool to work.
             <disabledText /></tooltip>
         </button>
-        <button id="LRWRA_MakeLayersButtonPalette_Items_ManholesButton" 
-                className="MakeLayersButtonPalette_manholesbutton" 
-                caption="Manholes Selection Layer" 
-                condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" 
-                loadOnClick="true" 
-                smallImage="Images\MakeManholesLayer16.png" 
-                largeImage="Images\MakeManholesLayer.png">
+        <button id="LRWRA_MakeLayersButtonPalette_Items_ManholesButton" className="MakeLayersButtonPalette_manholesbutton" caption="Manholes Selection Layer" condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" loadOnClick="true" smallImage="Images\MakeManholesLayer16.png" largeImage="Images\MakeManholesLayer.png">
           <tooltip heading="Make Manholes layer">
 Use this button to create Manholes layer from the selected manholes.
 
 Manholes layer MUST be present in map and named as such, as well as, have selected features, for this tool to work.
             <disabledText /></tooltip>
         </button>
-        <button id="LRWRA_MakeLayersButtonPalette_Items_LinesButton" 
-                caption="Sewer Lines Selection Layer" 
-                className="MakeLayersButtonPalette_linesbutton" 
-                condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" 
-                loadOnClick="true" smallImage="Images\MakeLinesLayer16.png" 
-                largeImage="Images\MakeLinesLayer.png">
+        <button id="LRWRA_MakeLayersButtonPalette_Items_LinesButton" caption="Sewer Lines Selection Layer" className="MakeLayersButtonPalette_linesbutton" condition="esri_mapping_activeMapView_hasFeatureSelectionCondition" loadOnClick="true" smallImage="Images\MakeLinesLayer16.png" largeImage="Images\MakeLinesLayer.png">
           <tooltip heading="Make Sewer Lines Layer">
 Use this button to create Sewer Lines layer from the selected manholes.
 
 Sewer Lines layer MUST be present in map and named as such, as well as, have selected features, for this tool to work.
             <disabledText /></tooltip>
         </button>
-        <button id="LRWRA_WorkHistTables" 
-                caption="Add Work History Tables" 
-                className="WorkHistTables" 
-                loadOnClick="true" 
-                smallImage="Images\WorkHistTables16.png" 
-                largeImage="Images\WorkHistTables.png">
+        <button id="LRWRA_WorkHistTables" caption="Add Work History Tables" className="WorkHistTables" loadOnClick="true" smallImage="Images\WorkHistTables16.png" largeImage="Images\WorkHistTables.png">
           <tooltip heading="Add Work History Tables">
 Add the Manholes and Sewer Lines work history tables to map.
 
 This will enable you to view work histories for manholes and sewer lines in the feautre pop-up menu.
           <disabledText /></tooltip>
         </button>
-        <tool id="LRWRA_TraceUpstream" 
-              caption="Trace 
-              Up" 
-              className="TraceUpstream" 
-              loadOnClick="true" 
-              smallImage="Images\TraceUp.png" 
-              largeImage="Images\TraceUp.png" 
-              condition="esri_mapping_mapPane">
+        <tool id="LRWRA_TraceUpstream" caption="Trace Up" className="TraceUpstream" loadOnClick="true" smallImage="Images\TraceUp.png" largeImage="Images\TraceUp.png" condition="esri_mapping_mapPane">
           <tooltip heading="Trace Upstream">
             Used to trace sewers upstream from a single selected manhole.<disabledText /></tooltip>
         </tool>
-        <tool id="LRWRA_TraceDownstream" 
-              caption="Trace 
-              Down" 
-              className="TraceDownstream" 
-              loadOnClick="true" 
-              smallImage="Images\TraceDown.png" 
-              largeImage="Images\TraceDown.png" 
-              condition="esri_mapping_mapPane">
+        <tool id="LRWRA_TraceDownstream" caption="Trace Down" className="TraceDownstream" loadOnClick="true" smallImage="Images\TraceDown.png" largeImage="Images\TraceDown.png" condition="esri_mapping_mapPane">
           <tooltip heading="Trace Downstream">
             Used to trace sewers downstream from a single selected manhole.<disabledText /></tooltip>
         </tool>
         <button id="LRWRA_AddManholesTrace" 
-                caption="Add 
-                Manholes" 
+                caption="Add                  Manholes" 
                 className="AddManholesTrace" 
                 loadOnClick="true" 
                 smallImage="Images\AddManholes.png" 
                 largeImage="Images\AddManholes.png">
           <tooltip heading="Add Manholes To Trace">
-            Selects manholes associated with trace that has been performed.<disabledText />
-          </tooltip>
+            Selects manholes associated with trace that has been performed.<disabledText /></tooltip>
         </button>
+        <tool id="LRWRA_GetPrevMaint" 
+              caption="Preventive Maintenance" 
+              className="GetPrevMaint" 
+              loadOnClick="true" 
+              smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonRed16.png" 
+              largeImage="Images\PrevMaint.png" 
+              condition="esri_mapping_mapPane">
+          <tooltip heading="Get Preventive Maintenance">Opens table with scheduled prevetive maintenance, if there is any, for selected sewer line.<disabledText /></tooltip>
+        </tool>
+        <tool id="LRWRA_GetWorkHistory" 
+              caption="Work History" 
+          className="GetWorkHistory" 
+          loadOnClick="true" 
+          smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonRed16.png" 
+          largeImage="Images\WorkHist.png" 
+          condition="esri_mapping_mapPane">
+          <tooltip heading="Get Work History">Opens table with work history, if there is any, for selected sewer line or manhole.<disabledText /></tooltip>
+        </tool>
       </controls>
       <palettes>
         <buttonPalette id="LRWRA_MakeLayersButtonPalette" caption="Make Layers from Selections" dropDown="false" menuStyle="true">

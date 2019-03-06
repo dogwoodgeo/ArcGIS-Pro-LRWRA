@@ -31,55 +31,7 @@ namespace LRWRA
         {
             return QueuedTask.Run(() =>
             {
-                try
-                {
-                    var map = MapView.Active.Map;
-                    var mhExists = map.GetLayersAsFlattenedList().OfType<FeatureLayer>().Any(m => m.Name == "Manholes");
-                    var sewerExists = map.GetLayersAsFlattenedList().OfType<FeatureLayer>().Any(s => s.Name == "Sewer Lines");
-                    if (mhExists == false && sewerExists == false)
-                    {
-                        MessageBox.Show("Manholes & Sewers are missing from map.", "Message");
-                    }
-                    else if (mhExists == false && sewerExists)
-                    {
-                        MessageBox.Show("Sewer Lines layer is present. \n\nManholes layer is missing from map.", "Message");
-                    }
-                    else if (mhExists && sewerExists == false)
-                    {
-                        MessageBox.Show("Manholes layer is present. \n\nSewers layer is missing from map.", "Message");
-                    }
-
-                    else
-                    {
-                        var layers = map.GetLayersAsFlattenedList().OfType<FeatureLayer>();
-                        foreach (var layer in layers)
-                        {
-                            if (layer.Name == "Manholes" || layer.Name == "Sewer Lines")
-                            //if (layer.Name == "Manholes")
-                            {
-                                layer.SetSelectable(true);
-                            }
-
-                            else
-                            {
-                                layer.SetSelectable(false);
-                            }
-                        }
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    SysModule.LogError(ex.Message, ex.StackTrace);
-
-                    string caption = "Failed to Select Features";
-                    string message = "Process failed.\n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                        "If problem persist, contact your local GIS nerd.";
-
-                    //Using the ArcGIS Pro SDK MessageBox class
-                    MessageBox.Show(message, caption);
-                }
-
+                SysModule.SewersStatus();
 
             });
         }
@@ -97,9 +49,9 @@ namespace LRWRA
                 {
                     SysModule.LogError(ex.Message, ex.StackTrace);
 
-                    string caption = "Failed to select features!";
-                    string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                        "If problem persist, contact your local GIS nerd.";
+                    string caption = "Failed to Select Features";
+                    string message = "Process failed. \nSave and restart ArcGIS Pro and try process again.\n" +
+                        "If problem persist, contact your GIS Admin.";
 
                     //Using the ArcGIS Pro SDK MessageBox class
                     MessageBox.Show(message, caption);

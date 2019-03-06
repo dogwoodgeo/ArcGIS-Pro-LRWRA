@@ -68,9 +68,9 @@ namespace LRWRA
                 {
                     SysModule.LogError(ex.Message, ex.StackTrace);
 
-                    string caption = "Failed to load work history tables!";
-                    string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                        "If problem persist, contact your local GIS nerd.";
+                    string caption = "Failed to Load Tables";
+                    string message = "Process failed. \nSave and restart ArcGIS Pro and try process again.\n" +
+                        "If problem persist, contact your GIS Admin.";
 
                     //Using the ArcGIS Pro SDK MessageBox class
                     MessageBox.Show(message, caption);

@@ -61,9 +61,9 @@ namespace LRWRA
                         //Log error to exception log on network.
                         SysModule.LogError(ex.Message, ex.StackTrace);
 
-                        string caption = "Failed to get street view";
+                        string caption = "Error Occurred";
                         string message = "Process failed. \n\nSave and restart ArcGIS Pro and try process again.\n\n" +
-                            "If problem persist, contact your local GIS nerd.";
+                            "If problem persist, contact GIS Admin.";
 
                         //Using the ArcGIS Pro SDK MessageBox class
                         MessageBox.Show(message, caption);
