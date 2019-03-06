@@ -3,19 +3,23 @@ Primary ArcGIS Pro add-in created for Little Rock Water Reclamation Authority GI
 
 Add-in also contains code to log all exceptions thrown by users to a **.txt** file on my organizations network.
 
- 
+ Original tools and controls used in this add-in can also be found in individual repositories
 
-Original tools and controls used in this add-in can also be found in individual repositories
+[**Add Layers**](https://github.com/dogwoodgeo/ArcGIS-Pro-AddLayers)
 
-[Add Layers](https://github.com/dogwoodgeo/ArcGIS-Pro-AddLayers)
+[**Google Street View**](https://github.com/dogwoodgeo/ArcGIS-Pro-GoogleStreetView)
 
-[Google Street View](https://github.com/dogwoodgeo/ArcGIS-Pro-GoogleStreetView)
+[**Select Sewers**](https://github.com/dogwoodgeo/ArcGIS-Pro-SewerSelect)
 
-[Select Sewers](https://github.com/dogwoodgeo/ArcGIS-Pro-SewerSelect)
+[**Trace**](https://github.com/dogwoodgeo/ArcGIS-Pro-Trace)
 
-[Add Work History Tables](https://github.com/dogwoodgeo/ArcGIS-Pro-AddWorkHistTables)
+[**Get Preventive Maintenance**](https://github.com/dogwoodgeo/ArcGIS-Pro-PrevMaint)
 
-[Trace](https://github.com/dogwoodgeo/ArcGIS-Pro-Trace)
+[**Add Work History Tables**](https://github.com/dogwoodgeo/ArcGIS-Pro-AddWorkHistTables)
+
+**Get Work History** This tool works similarly to *Get Preventive Maintenance*
+
+****************
 
 **Update**: Fixed a bug in the Trace tool that caused it to hang-up and required you to shut ArcGIS Pro down in Task Manager.  See the Trace repository above for more information.
 
@@ -25,7 +29,7 @@ Original tools and controls used in this add-in can also be found in individual 
 
 Clone or download the repository. Open Visual Studio 2015 or 2017, build solution, launch ArcGIS Pro and check the **LRWRA** tab.
 
-![](assets/2019-01-02_12-51-05.png)
+![](assets/2019-03-06_9-29-55.png)
 
 
 
@@ -38,9 +42,9 @@ Language:				C#
 Contributor:			Bradley Jones, bjones@dogwoodgeo.com
 Organization:			Little Rock Water Reclamation Authority (LRWRA)
 Org Site:				https://git.lrwu.com/portal
-Date:					1/2/2019
-ArcGIS Pro:				2.2
-ArcGIS Pro SDK:			2.2
+Date:					3/6/2019
+ArcGIS Pro:				2.3
+ArcGIS Pro SDK:			2.3
 Visual Studio:			2017, 2015
 .NET Target Framework:	4.6.1
 ```
