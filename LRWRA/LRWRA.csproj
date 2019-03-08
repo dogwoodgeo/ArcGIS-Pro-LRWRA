@@ -99,7 +99,6 @@
   <ItemGroup>
     <Compile Include="AddData.cs" />
     <Compile Include="AddManholesTrace.cs" />
-    <Compile Include="Daml.cs" />
     <Compile Include="DeSelectTool.cs" />
     <Compile Include="GetPrevMaint.cs" />
     <Compile Include="GetWorkHistory.cs" />
