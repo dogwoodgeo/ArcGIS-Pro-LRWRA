@@ -69,7 +69,7 @@ namespace LRWRA
 
                     else
                     {
-                        slComp = SysModule.GetCompkey();
+                        slComp = SysModule.GetPipeID();
                         if (!string.IsNullOrEmpty(slComp))
                         {
                             Uri path = new Uri("O:\\SHARE\\405 - INFORMATION SERVICES\\GIS_Layers\\GISVIEWER.SDE@SQL0.sde");
@@ -77,7 +77,7 @@ namespace LRWRA
                             // Set up Geodatabase Object)
                             using (Geodatabase geodatabase = new Geodatabase(new DatabaseConnectionFile(path)))
                             {
-                                string queryString = $"COMPKEY = {slComp}";
+                                string queryString = $"PIPE_ID = {slComp}";
                                 QueryDef queryDef = new QueryDef()
                                 {
                                     Tables = "SDE.sewerman.tblV8PMTOOL",
@@ -88,7 +88,7 @@ namespace LRWRA
                                 {
                                     MakeCopy = true,
                                     Name = $"Preventive Maintenance: {slComp}",
-                                    PrimaryKeys = geodatabase.GetSQLSyntax().QualifyColumnName("SDE.sewerman.tblV8PMTOOL", "COMPKEY")
+                                    PrimaryKeys = geodatabase.GetSQLSyntax().QualifyColumnName("SDE.sewerman.tblV8PMTOOL", "PIPE_ID")
                                 };
 
                                 var queryTable = geodatabase.OpenQueryTable(queryTableDescription);

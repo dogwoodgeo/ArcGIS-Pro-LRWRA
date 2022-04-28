@@ -622,11 +622,11 @@ namespace LRWRA
 
         //}
 
-        public static string GetUnitID()
+        public static string GetManholeID()
         {
             try
             {
-                string unitID;
+                string mhID;
                 var map = MapView.Active.Map;
                 var mhLayer = map.GetLayersAsFlattenedList().OfType<FeatureLayer>().FirstOrDefault((m => m.Name == "Manholes"));
 
@@ -644,7 +644,7 @@ namespace LRWRA
                 inspector.Load(firstSelectionSet.Key, firstSelectionSet.Value);
 
                 //get the value of
-                return unitID = inspector["UNITID"].ToString();
+                return mhID = inspector["MH_NO"].ToString();
             }
             catch (Exception ex)
             {
@@ -659,7 +659,7 @@ namespace LRWRA
                 return null;
             }
         }
-        public static string GetCompkey()
+        public static string GetPipeID()
         {
             try
             {
@@ -681,7 +681,7 @@ namespace LRWRA
                 inspector.Load(firstSelectionSet.Key, firstSelectionSet.Value);
 
                 //get the value of
-                return compkey = inspector["COMPKEY"].ToString();
+                return compkey = inspector["ARCID"].ToString();
             }
             catch (Exception ex)
             {

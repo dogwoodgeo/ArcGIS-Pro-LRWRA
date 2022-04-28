@@ -27,8 +27,8 @@ namespace LRWRA
                 try
                 {
                     var mapView = MapView.Active.Map;
-                    string urlMH = @"O:\SHARE\405 - INFORMATION SERVICES\GIS_Layers\GISVIEWER.SDE@SQL0.sde\SDE.sewerman.tblV8MHWorkhist";
-                    string urlLines = @"O:\SHARE\405 - INFORMATION SERVICES\GIS_Layers\GISVIEWER.SDE@SQL0.sde\SDE.sewerman.tblV8SewerWorkHist";
+                    string urlMH = @"O:\SHARE\405 - INFORMATION SERVICES\GIS_Layers\GISVIEWER.SDE@SQL0.sde\SDE.sewerman.tblEAM_Manhole_Work";
+                    string urlLines = @"O:\SHARE\405 - INFORMATION SERVICES\GIS_Layers\GISVIEWER.SDE@SQL0.sde\SDE.sewerman.tblEAM_Sewer_Work";
                     Uri mhURI = new Uri(urlMH);
                     Uri linesURI = new Uri(urlLines);
 
@@ -39,21 +39,21 @@ namespace LRWRA
                         if (mhTables.Count == 0 && slTables.Count == 0)
                         {
                             StandaloneTable manholesHistory = StandaloneTableFactory.Instance.CreateStandaloneTable(mhURI, mapView, "Manholes Work History");
-                            SysModule.SetDisplayField(manholesHistory, "Manholes Work History", "COMPDTTM");
+                            SysModule.SetDisplayField(manholesHistory, "Manholes Work History", "INIT_DATE");
                             StandaloneTable linesHistory = StandaloneTableFactory.Instance.CreateStandaloneTable(linesURI, mapView, "Sewer Lines Work History");
-                            SysModule.SetDisplayField(linesHistory, "Sewer Lines Work History", "COMPDTTM");
+                            SysModule.SetDisplayField(linesHistory, "Sewer Lines Work History", "INIT_DATE");
                         }
                         else if (mhTables.Count > 0 && slTables.Count == 0)
                         {
                             StandaloneTable linesHistory = StandaloneTableFactory.Instance.CreateStandaloneTable(linesURI, mapView, "Sewer Lines Work History");
-                            SysModule.SetDisplayField(linesHistory, "Sewer Lines Work History", "COMPDTTM");
+                            SysModule.SetDisplayField(linesHistory, "Sewer Lines Work History", "INIT_DATE");
                             MessageBox.Show("'Manholes Work History' table is already present in map.\n\n'Sewer Lines Work History' table has been added", "Warning");
                         }
 
                         else if (mhTables.Count == 0 && slTables.Count > 0)
                         {
                             StandaloneTable manholesHistory = StandaloneTableFactory.Instance.CreateStandaloneTable(mhURI, mapView, "Manholes Work History");
-                            SysModule.SetDisplayField(manholesHistory, "Manholes Work History", "COMPDTTM");
+                            SysModule.SetDisplayField(manholesHistory, "Manholes Work History", "INIT_DATE");
                             MessageBox.Show("'Sewer Lines Work History' table is already present in map.\n\n'Manholes Work History' table has been added", "Warning");
                         }
 

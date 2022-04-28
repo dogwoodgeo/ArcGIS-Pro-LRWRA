@@ -21,8 +21,8 @@ namespace LRWRA
 {
     internal class GetWorkHistory : MapTool
     {
-        string compkey;
-        string unitID;
+        string pipeID;
+        string mhID;
 
         public GetWorkHistory()
         {
@@ -64,24 +64,24 @@ namespace LRWRA
                     if (mhSelectCount == 1)
                     {
                         lines.ClearSelection();
-                        unitID = SysModule.GetUnitID();
+                        mhID = SysModule.GetManholeID();
                         //Uri path = new Uri("O:\\SHARE\\405 - INFORMATION SERVICES\\GIS_Layers\\GISVIEWER.SDE@SQL0.sde");
 
                         // Set up Geodatabase Object)
                         using (Geodatabase geodatabase = new Geodatabase(new DatabaseConnectionFile(path)))
                         {
-                                string queryString = $"UNITID = '{unitID}'";
+                                string queryString = $"MH_ID = '{mhID}'";
                                 QueryDef queryDef = new QueryDef()
                                 {
-                                    Tables = "SDE.sewerman.tblV8MHWorkhist",
+                                    Tables = "SDE.sewerman.tblEAM_Manhole_Work",
                                     WhereClause = queryString,
                                 };
 
                                 QueryTableDescription queryTableDescription = new QueryTableDescription(queryDef)
                                 {
                                     MakeCopy = true,
-                                    Name = $"Manhole work history: {unitID}",
-                                    PrimaryKeys = geodatabase.GetSQLSyntax().QualifyColumnName("SDE.sewerman.tblV8MHWorkhist", "UNITID")
+                                    Name = $"Manhole work history: {mhID}",
+                                    PrimaryKeys = geodatabase.GetSQLSyntax().QualifyColumnName("SDE.sewerman.tblEAM_Manhole_Work", "MH_ID")
                                 };
 
                                 var queryTable = geodatabase.OpenQueryTable(queryTableDescription);
@@ -106,24 +106,24 @@ namespace LRWRA
                     // Query work history forSewer Lines selection
                     else if (linesSelectCount == 1)
                     {
-                            compkey = SysModule.GetCompkey();
-                            //Uri path = new Uri("O:\\SHARE\\405 - INFORMATION SERVICES\\GIS_Layers\\GISVIEWER.SDE@SQL0.sde");
-
+                            pipeID = SysModule.GetPipeID();
+                        //Uri path = new Uri("O:\\SHARE\\405 - INFORMATION SERVICES\\GIS_Layers\\GISVIEWER.SDE@SQL0.sde");
+                            
                         // Set up Geodatabase Object)
                         using (Geodatabase geodatabase = new Geodatabase(new DatabaseConnectionFile(path)))
                         {
-                            string queryString = $"COMPKEY = {compkey}";
+                            string queryString = $"PIPE_ID = '{pipeID}'";
                             QueryDef queryDef = new QueryDef()
                             {
-                                Tables = "SDE.sewerman.tblV8SewerWorkHist",
+                                Tables = "SDE.sewerman.tblEAM_Sewer_Work",
                                 WhereClause = queryString,
                             };
 
                             QueryTableDescription queryTableDescription = new QueryTableDescription(queryDef)
                             {
                                 MakeCopy = true,
-                                Name = $"Sewer line work history: {compkey}",
-                                PrimaryKeys = geodatabase.GetSQLSyntax().QualifyColumnName("SDE.sewerman.tblV8SewerWorkHist", "COMPKEY")
+                                Name = $"Sewer line work history: {pipeID}",
+                                PrimaryKeys = geodatabase.GetSQLSyntax().QualifyColumnName("SDE.sewerman.tblEAM_Sewer_Work", "PIPE_ID")
                             };
 
                             var queryTable = geodatabase.OpenQueryTable(queryTableDescription);

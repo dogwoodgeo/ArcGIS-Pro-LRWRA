@@ -1,4 +1,5 @@
-﻿<ArcGIS defaultAssembly="LRWRA.dll" defaultNamespace="LRWRA" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArcGIS defaultAssembly="LRWRA.dll" defaultNamespace="LRWRA" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
   <AddInInfo id="{fd61cce9-b66c-4f78-996e-4b45fdd51b85}" version="4.5" desktopVersion="2.1.10257">
     <Name>LRWRA</Name>
     <Description>The main ArcGIS Pro add-in for Little Rock Water Reclamation Authority</Description>
@@ -128,31 +129,14 @@ This will enable you to view work histories for manholes and sewer lines in the 
           <tooltip heading="Trace Downstream">
             Used to trace sewers downstream from a single selected manhole.<disabledText /></tooltip>
         </tool>
-        <button id="LRWRA_AddManholesTrace" 
-                caption="Add                  Manholes" 
-                className="AddManholesTrace" 
-                loadOnClick="true" 
-                smallImage="Images\AddManholes.png" 
-                largeImage="Images\AddManholes.png">
+        <button id="LRWRA_AddManholesTrace" caption="Add                  Manholes" className="AddManholesTrace" loadOnClick="true" smallImage="Images\AddManholes.png" largeImage="Images\AddManholes.png">
           <tooltip heading="Add Manholes To Trace">
             Selects manholes associated with trace that has been performed.<disabledText /></tooltip>
         </button>
-        <tool id="LRWRA_GetPrevMaint" 
-              caption="Preventive Maintenance" 
-              className="GetPrevMaint" 
-              loadOnClick="true" 
-              smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonRed16.png" 
-              largeImage="Images\PrevMaint.png" 
-              condition="esri_mapping_mapPane">
+        <tool id="LRWRA_GetPrevMaint" caption="Preventive Maintenance" className="GetPrevMaint" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonRed16.png" largeImage="Images\PrevMaint.png" condition="esri_mapping_mapPane">
           <tooltip heading="Get Preventive Maintenance">Opens table with scheduled prevetive maintenance, if there is any, for selected sewer line.<disabledText /></tooltip>
         </tool>
-        <tool id="LRWRA_GetWorkHistory" 
-              caption="Work History" 
-          className="GetWorkHistory" 
-          loadOnClick="true" 
-          smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonRed16.png" 
-          largeImage="Images\WorkHist.png" 
-          condition="esri_mapping_mapPane">
+        <tool id="LRWRA_GetWorkHistory" caption="Work History" className="GetWorkHistory" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonRed16.png" largeImage="Images\WorkHist.png" condition="esri_mapping_mapPane">
           <tooltip heading="Get Work History">Opens table with work history, if there is any, for selected sewer line or manhole.<disabledText /></tooltip>
         </tool>
       </controls>

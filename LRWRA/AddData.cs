@@ -19,9 +19,10 @@ namespace LRWRA
             { 
                 OpenItemDialog addToMap = new OpenItemDialog
                 {
-                    Title = "Add Data",
+                    Title = "Add Layers",
                     InitialLocation = @"O:\SHARE\405 - INFORMATION SERVICES\GIS_Layers\Production",
-                    MultiSelect = true
+                    MultiSelect = true,
+                    AlwaysUseInitialLocation = true
                 };
 
 
