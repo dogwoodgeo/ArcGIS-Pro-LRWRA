@@ -27,6 +27,7 @@ namespace LRWRA
             IsSketchTool = true;
             SketchType = SketchGeometryType.Point;
             SketchOutputMode = SketchOutputMode.Screen;
+            UseSnapping = true;
         }
 
 
