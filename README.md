@@ -21,7 +21,7 @@ Add-in also contains code to log all exceptions thrown by users to a **.txt** fi
 
 ****************
 
-**Update**: Fixed a bug in the Trace tool that caused it to hang-up and required you to shut ArcGIS Pro down in Task Manager.  See the Trace repository above for more information.
+**Update**: Changed the  data sources referenced in the *Maintenance* and *Trace* group of tools..
 
 **Note**: I am a novice .Net developer, at best.  The add-in works, but feel free to let me know if you see any code that is "wrong" or just plain bad.  
 
