@@ -20,7 +20,7 @@ namespace LRWRA
 {
     internal class GetPrevMaint : MapTool
     {
-        string slComp;
+        string pipeID;
 
         public GetPrevMaint()
         {
@@ -45,7 +45,7 @@ namespace LRWRA
         {
             try
             {
-                var standaloneTable = await QueuedTask.Run(() =>
+                StandaloneTable standaloneTable = await QueuedTask.Run(() =>
                 {
                     ActiveMapView.SelectFeatures(geometry, SelectionCombinationMethod.New);
 
@@ -69,29 +69,30 @@ namespace LRWRA
 
                     else
                     {
-                        slComp = SysModule.GetPipeID();
-                        if (!string.IsNullOrEmpty(slComp))
+                        pipeID = SysModule.GetPipeID();
+                        if (!string.IsNullOrEmpty(pipeID))
                         {
                             Uri path = new Uri("O:\\SHARE\\405 - INFORMATION SERVICES\\GIS_Layers\\GISVIEWER.SDE@SQL0.sde");
 
                             // Set up Geodatabase Object)
                             using (Geodatabase geodatabase = new Geodatabase(new DatabaseConnectionFile(path)))
                             {
-                                string queryString = $"PIPE_ID = {slComp}";
+                                string queryString = $"PIPE_ID = '{pipeID}'";
                                 QueryDef queryDef = new QueryDef()
                                 {
-                                    Tables = "SDE.sewerman.tblV8PMTOOL",
+                                    Tables = "SDE.sewerman.tblEAM_PM",
                                     WhereClause = queryString,
+                                    SubFields = "PIPE_ID, TASK, PREVDATE, NEXTDATE, INTERVAL, UNIT, OBJECTID",
                                 };
 
                                 QueryTableDescription queryTableDescription = new QueryTableDescription(queryDef)
                                 {
                                     MakeCopy = true,
-                                    Name = $"Preventive Maintenance: {slComp}",
-                                    PrimaryKeys = geodatabase.GetSQLSyntax().QualifyColumnName("SDE.sewerman.tblV8PMTOOL", "PIPE_ID")
+                                    Name = $"Preventive Maintenance: {pipeID}",
+                                    PrimaryKeys = geodatabase.GetSQLSyntax().QualifyColumnName("SDE.sewerman.tblEAM_PM", "PIPE_ID")
                                 };
 
-                                var queryTable = geodatabase.OpenQueryTable(queryTableDescription);
+                                Table queryTable = geodatabase.OpenQueryTable(queryTableDescription);
 
                                 int count = queryTable.GetCount();
                                 if (count == 0)

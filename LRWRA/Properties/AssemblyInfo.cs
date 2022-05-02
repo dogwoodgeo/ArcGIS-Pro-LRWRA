@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("LRWRA")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A collection of default tools used LRWRA GIS users.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Acme")]
+[assembly: AssemblyCompany("Little Rock Water Reclamation Authority")]
 [assembly: AssemblyProduct("LRWRA")]
-[assembly: AssemblyCopyright("Copyright © Acme 2018")]
+[assembly: AssemblyCopyright("Copyright © Little Rock Water Reclamation 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

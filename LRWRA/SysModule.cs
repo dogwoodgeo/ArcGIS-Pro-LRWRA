@@ -331,8 +331,8 @@ namespace LRWRA
 
                     // Get the indices for the fields
                     int objIDIdx = arcTableDef.FindField("ObjectID");
-                    int nodeUpIdx = arcTableDef.FindField("UNITID");
-                    int nodeDwnIdx = arcTableDef.FindField("UNITID2");
+                    int nodeUpIdx = arcTableDef.FindField("UPS_MH");
+                    int nodeDwnIdx = arcTableDef.FindField("DWN_MH");
 
                     using (ArcGIS.Core.Data.RowCursor rowCursor = arcLayer.Search())
                     {
