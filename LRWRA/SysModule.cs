@@ -285,15 +285,15 @@ namespace LRWRA
                     var descriptions = table.GetFieldDescriptions();
                     foreach (var desc in descriptions)
                     {
-                        if (desc.Name == fieldName) // If field name equals "COMPDTTM"
+                        if (desc.Name == fieldName) // If field name equals "INITDATE"
                         {
-                            //Creates variable that's equal to "COMPDTTM"
+                            //Creates variable that's equal to "INITDATE"
                             string displayName = desc.Name;
 
                             // Get's the CIM definition from the StandaloneTable
                             var cimTableDefinition = table.GetDefinition() as CIMStandaloneTable;
 
-                            // Set DisplayField property of the cimTableDefinition equall to displayName("COMPDTTM")
+                            // Set DisplayField property of the cimTableDefinition equall to displayName("INITDATE")
                             cimTableDefinition.DisplayField = displayName;
 
                             // USe the SetDefinition method to apply the modified table definition (cimTableDefninition)
@@ -663,7 +663,7 @@ namespace LRWRA
         {
             try
             {
-                string compkey;
+                string pipeID;
                 var map = MapView.Active.Map;
                 var linesLayer = map.GetLayersAsFlattenedList().OfType<FeatureLayer>().FirstOrDefault((m => m.Name == "Sewer Lines"));
 
@@ -681,7 +681,7 @@ namespace LRWRA
                 inspector.Load(firstSelectionSet.Key, firstSelectionSet.Value);
 
                 //get the value of
-                return compkey = inspector["ARCID"].ToString();
+                return pipeID = inspector["ARCID"].ToString();
             }
             catch (Exception ex)
             {
