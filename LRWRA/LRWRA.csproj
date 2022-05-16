@@ -79,6 +79,7 @@
     <Compile Include="GetPrevMaint.cs" />
     <Compile Include="GetWorkHistory.cs" />
     <Compile Include="MakeLayersButtonPalette.cs" />
+    <Compile Include="RemoveTables.cs" />
     <Compile Include="SelectSewersTool.cs" />
     <Compile Include="SysModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,8 +177,8 @@
     <AddInContent Include="Images\SelectSewers.png" />
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="Images\WorkHistTables.png" />
-    <AddInContent Include="Images\WorkHistTables16.png" />
+    <AddInContent Include="Images\WorkHistTablesBU.png" />
+    <AddInContent Include="Images\WorkHistTables16_BU.png" />
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="Images\TraceDown.png" />
@@ -187,13 +188,17 @@
     <AddInContent Include="Images\AddManholes.png" />
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="Images\PrevMaint.png" />
+    <AddInContent Include="Images\PrevMaint_BU.png" />
   </ItemGroup>
   <ItemGroup>
-    <AddInContent Include="Images\WorkHist.png" />
+    <AddInContent Include="Images\WorkHistBU.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ArcGIS.Desktop.Core.dll" />
+    <AddInContent Include="Images\RemoveTables.png" />
+    <AddInContent Include="Images\WorkHistTables.png" />
+    <AddInContent Include="Images\WorkHist.png" />
+    <AddInContent Include="Images\PrevMaint.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

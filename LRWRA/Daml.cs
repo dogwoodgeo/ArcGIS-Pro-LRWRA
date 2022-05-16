@@ -550,7 +550,8 @@ namespace ArcGIS.Desktop.Framework {
 			public static string esri_GDBCreateNewPythonNotebookButton {
 				 get { return "esri_GDBCreateNewPythonNotebookButton"; }
 			}
-			///<summary>Returns the id string for &quot;Notebook&quot; (esri_geodatabase_module:AddOpenNewNotebookFromContextMenu, Catalog)</summary>
+			///<summary>Returns the id string for &quot;Notebook&quot; (esri_geodatabase_module:AddOpenNewNotebookFrom
+			///tMenu, Catalog)</summary>
 			public static string esri_GDBCreateNewPythonNotebookButtonInFolder {
 				 get { return "esri_GDBCreateNewPythonNotebookButtonInFolder"; }
 			}
