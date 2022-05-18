@@ -78,8 +78,10 @@
     <Compile Include="DeSelectTool.cs" />
     <Compile Include="GetPrevMaint.cs" />
     <Compile Include="GetWorkHistory.cs" />
+    <Compile Include="InspMapbook.cs" />
     <Compile Include="MakeLayersButtonPalette.cs" />
     <Compile Include="RemoveTables.cs" />
+    <Compile Include="ResultsMapbook.cs" />
     <Compile Include="SelectSewersTool.cs" />
     <Compile Include="SysModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,6 +201,8 @@
     <AddInContent Include="Images\WorkHistTables.png" />
     <AddInContent Include="Images\WorkHist.png" />
     <AddInContent Include="Images\PrevMaint.png" />
+    <AddInContent Include="Images\InspMapbook.png" />
+    <AddInContent Include="Images\ResultsMapbook.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
